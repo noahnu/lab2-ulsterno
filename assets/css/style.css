@@ -1,5 +1,10 @@
 /* E.g. Style Guide: https://google.github.io/styleguide/htmlcssguide.xml */
 
+/*
+ * Teal: #24cccd
+ * Grey: #cccccc
+ * Blue: #30659b
+ */
 
 /**
  * Your main styles at the top apply to the smallest screen/viewport,
@@ -9,6 +14,22 @@
  * the "mobile" device sizes first, then overridden on larger devices.
  */
 
+html {
+	padding: 0;
+}
+
+body {
+	padding: 8px;
+	font-size: 1em;
+	font-family: sans-serif;
+}
+
+html, body {
+	min-height: 100%;
+	height: 100%;
+	margin: 0;
+}
+ 
 * { 
     box-sizing: border-box;
 	width: 100%;
@@ -16,10 +37,47 @@
 
 header span.img {
     display: block;
+	
+	background: #24cccd;
+	color: #fff;
+	text-align: center;
+	padding: 22px 5px;
+}
+
+#menu {
+	background: #ccc;
 }
 
 ul {
     list-style-type: none;
+	padding: 11px 0;
+	margin: 10px 0;
+	text-align: center;
+}
+
+ul li {
+	padding: 5px 0;
+}
+
+ul li a {
+	color: #fff;
+	font-size: 1.1em;
+}
+
+section article {
+	background: #30659b;
+	text-align: center;
+	color: #fff;
+	padding: 16px 0;
+	margin: 10px 0;
+	font-size: 1.1em;
+}
+
+footer {
+	background: #ccc;
+	text-align: center;
+	color: #fff;
+	padding: 7px 0;
 }
 
 
@@ -50,9 +108,17 @@ ul {
 
     section article {
         float: left;
+		width: calc(50% - 5px);
+		margin-top: 0;
     }
-
-    /* Re-style here... */
+	
+	section article:nth-child(2n+1) {
+		margin-right: 5px;
+	}
+	
+	section article:nth-child(2n) {
+		margin-left: 5px;
+	}
     
 }
 
@@ -68,5 +134,48 @@ ul {
 @media screen and (min-width: 1280px) {
     /* Re-style here, if necessary! You may want to use the same technique
 	 * used in section::after for the header*/
-
+    header {
+		height: 80px;
+		margin: 0 0 10px 0;
+	}
+	
+	header::after {
+        clear: both;
+        content: '';
+        display: table;
+        height: 0;
+        visibility: hidden;
+    }
+	
+	header span.img {
+		float: left;
+		width: 25%;
+		height: 100%;
+		padding: 30px 0;
+		font-size: 1.3em;
+	}
+	
+	nav {
+		display: inline-block;
+		width: 74%;
+		margin-left: 1%;
+		height: 100%;
+	}
+	
+	ul li {
+		display: inline-block;
+		width: 33%;
+		padding: 10px 0;
+	}
+	
+	section {
+		display: block;
+		height: calc(100% - 170px);
+		margin-bottom: 10px;
+	}
+	
+	section article {
+		height: 100%;
+	}
+	
 }
